@@ -1,14 +1,14 @@
 # Simple Todo App
 
-Give a brief description of the project here. Feel free to give it a different name.
+The project is a todo app that allows you to set dates and check off items as you've finished them, as well as delete ones you've already completed.
 
 ## Functionality
 
-Give a more detailed explanation of the project and its functionality.
+Code was refactored into different folders to declutter some and make it more legible.
 
 ## Technology
 
-Give a description of the technologies and techniques used. Pictures, GIFs, or screenshots that detail the project features are recommended.
+The start of this project involved refactoring code to make it easier to work with and clearer to understand.
 
 ## Deployment
 
