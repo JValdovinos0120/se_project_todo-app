@@ -1,4 +1,3 @@
-
 class FormValidator {
     constructor(settings, formEl){
         this._inputSelector = settings.inputSelector;
@@ -7,25 +6,22 @@ class FormValidator {
         this._inputErrorClass = settings.inputErrorClass;
         this._inactiveButtonClass = settings.inactiveButtonClass;
         this._formEl = formEl;
-
-        console.log(settings);
-        console.log(formEl);
     }
 
     _showInputError = (inputElement) => {
     const errorElementId = `#${inputElement.id}-error`;
     const errorElement = this._formEl.querySelector(errorElementId);
     inputElement.classList.add(this._inputErrorClass);
-    errorElement.textContent = errorMessage;
+    errorElement.textContent = inputElement.validationMessage;
     errorElement.classList.add(this._errorClass);
     }
 
     _hideInputError = (inputElement) => {
-        const errorElementId = `#${inputElement.id}-error`;
-        const errorElement = this._formEl.querySelector(errorElementId);
-        inputElement.classList.remove(this._inputErrorClass);
-        errorElement.classList.remove(this._errorClass);
-        errorElement.textContent = "";
+    const errorElementId = `#${inputElement.id}-error`;
+    const errorElement = this._formEl.querySelector(errorElementId);
+    inputElement.classList.remove(this._inputErrorClass);
+    errorElement.classList.remove(this._errorClass);
+    errorElement.textContent = "";
     }
     
     _checkInputValidity(inputElement) {
@@ -56,13 +52,13 @@ class FormValidator {
     this._inputList = Array.from(
     this._formEl.querySelectorAll(this._inputSelector),
   );
-  this._buttonElement = this._formEl.querySelector(
+    this._buttonElement = this._formEl.querySelector(
     this._submitButtonSelector);
 
-  this._toggleButtonState();
+    this._toggleButtonState();
 
-  this._inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", () => {
+    this._inputList.forEach((inputElement) => {
+      inputElement.addEventListener("input", () => {
       this._checkInputValidity(inputElement); // Check validity of the input - test with only inputElement
       this._toggleButtonState(); // Check the button state - test without inputList
     });
