@@ -51,9 +51,10 @@ class FormValidator {
     _setEventListeners() {
     this._inputList = Array.from(
     this._formEl.querySelectorAll(this._inputSelector),
-  );
+    );
     this._buttonElement = this._formEl.querySelector(
-    this._submitButtonSelector);
+    this._submitButtonSelector
+  );
 
     this._toggleButtonState();
 
@@ -62,7 +63,7 @@ class FormValidator {
       this._checkInputValidity(inputElement); // Check validity of the input - test with only inputElement
       this._toggleButtonState(); // Check the button state - test without inputList
     });
-  });
+    });
     }
 
     resetValidation() {
