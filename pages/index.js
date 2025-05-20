@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
-
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todo from "../components/Todo.js";
 import FormValidator from "../components/FormValidator.js";
@@ -20,7 +19,6 @@ const closeModal = (modal) => {
   modal.classList.remove("popup_visible");
 };
 
-// The logic in this function should all be handled in the Todo class.
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template");
   return todo.getView();
@@ -48,9 +46,9 @@ addTodoForm.addEventListener("submit", (evt) => {
   const date = new Date(dateInput);
   date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
 
-  // Generate a unique ID for the new todo
   const id = uuidv4();
 
+  //added resetValidation
   const values = { name, date, id };
   renderTodo(values);
   closeModal(addTodoPopup);
@@ -58,6 +56,6 @@ addTodoForm.addEventListener("submit", (evt) => {
   newTodoValidator.resetValidation();
 });
 
-initialTodos.forEach(renderTodo); 
+initialTodos.forEach(renderTodo);
 
 newTodoValidator.enableValidation();
