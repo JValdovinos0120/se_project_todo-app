@@ -46,7 +46,7 @@ class FormValidator {
       this._buttonElement.classList.remove(this._inactiveButtonClass);
       this._buttonElement.disabled = false;
     }
-  }
+    }
 
     _setEventListeners() {
     this._inputList = Array.from(
