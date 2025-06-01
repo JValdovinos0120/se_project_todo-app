@@ -67,7 +67,7 @@ class FormValidator {
   }
 
   resetValidation() {
-    this.formEl.reset();
+    this._formEl.reset();
     this._toggleButtonState();
   }
 

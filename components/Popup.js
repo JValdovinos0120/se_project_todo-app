@@ -7,13 +7,13 @@ class Popup {
   }
 
   open() {
-    this._popupElement.classList.add("popup__opened");
+    this._popupElement.classList.add("popup_visible");
     document.addEventListener("keydown", this._handleEscClose);
     this._popupElement.addEventListener("click", this._handleOverlayClick);
   }
 
   close() {
-    this._popupElement.classList.remove("popup__opened");
+    this._popupElement.classList.remove("popup_visible");
     document.removeEventListener("keydown", this._handleEscClose);
     this._popupElement.removeEventListener("click", this._handleOverlayClick);
   }
@@ -31,9 +31,7 @@ class Popup {
   }
 
   setEventListeners() {
-    const closeButton = this._popupElement.querySelector(
-      ".popup__close-button"
-    );
+    const closeButton = this._popupElement.querySelector(".popup__close");
     closeButton.addEventListener("click", () => this.close());
   }
 }
