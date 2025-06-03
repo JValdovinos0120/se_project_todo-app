@@ -61,9 +61,3 @@ addTodoPopup.setEventListeners();
 addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();
 });
-
-addTodoCloseBtn.addEventListener("click", () => {
-  addTodoPopup.close();
-  addTodoForm.reset();
-  newTodoValidator.resetValidation();
-});
