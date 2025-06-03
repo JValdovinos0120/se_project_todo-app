@@ -22,24 +22,20 @@ const generateTodo = (data) => {
   return todo.getView();
 };
 
+const renderTodo = (item) => {
+  const todoEl = generateTodo(item);
+  section.addItem(todoEl);
+};
+
 const section = new Section({
   items: initialTodos,
-  renderer: (item) => {
-    const todoEl = generateTodo(item);
-    section.addItem(todoEl);
-  },
+  renderer: renderTodo,
   containerSelector: ".todos__list",
 });
 section.renderItems();
 
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 newTodoValidator.enableValidation();
-
-const renderTodo = (item) => {
-  const todo = generateTodo(item);
-  todosList.append(todo);
-  todoCounter.updateTotal(true);
-};
 
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
@@ -53,9 +49,10 @@ const addTodoPopup = new PopupWithForm({
 
     const id = uuidv4();
     const values = { name, date: dateObject, id };
+
     renderTodo(values);
+    todoCounter.updateTotal(true);
     addTodoPopup.close();
-    addTodoForm.reset();
     newTodoValidator.resetValidation();
   },
 });
